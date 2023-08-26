@@ -1,0 +1,12 @@
+pipeline{
+    agent any
+    stages{
+      stage('Build Docker Image') {  
+          steps{                     
+             sh 'sudo docker build -t Muppireddidevops/muppireddidevops:$BUILD_NUMBER .'     
+             echo 'Build Image Completed'
+            }
+        }                   
+                      
+    } 
+}
