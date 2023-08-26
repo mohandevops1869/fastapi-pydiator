@@ -3,7 +3,7 @@ pipeline{
     stages{
       stage('Build Docker Image') {  
           steps{                     
-             sh 'docker build -t Muppireddidevops/muppireddidevops:$BUILD_NUMBER .'     
+             sh 'docker build -f Dockerfile1 .'     
              echo 'Build Image Completed'
             }
         }                   
