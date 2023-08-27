@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Push Image to Docker Hub') {         
             steps{                            
-              sh 'sudo docker push mohanpycs'           
+              sh 'sudo docker push -S mohanpycs'           
               echo 'Push Image Completed'       
             }            
         }  
