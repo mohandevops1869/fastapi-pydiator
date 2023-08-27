@@ -2,17 +2,23 @@ pipeline{
     agent any
     environment {     
     DOCKERHUB_CREDENTIALS= credentials('docker-hub-credientials')     
-} 
+    } 
     stages{
       stage('Build Docker Image') {  
           steps{                     
              sh 'docker build -f Dockerfile1 -t mohanpycs .'     
              echo 'Build Image Completed'
             }
-        }                   
+        } 
+        stage('Login to Docker Hub') {      	
+          steps{                       	
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                		
+                echo 'Login Completed'      
+            }           
+        }                 
                       
     }
-      post {
+    post {
         always {
             echo 'One way or another, I have finished'
             deleteDir() /* clean up our workspace */
