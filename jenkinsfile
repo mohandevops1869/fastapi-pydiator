@@ -3,7 +3,7 @@ pipeline{
     stages{
       stage('Build Docker Image') {  
           steps{                     
-             sh 'docker build -f Dockerfile1 .'     
+             sh 'docker build -f Dockerfile1 -t mohanpycs .'     
              echo 'Build Image Completed'
             }
         }                   
